@@ -1,0 +1,4 @@
+{
+    "greeting": "Hi! I'm Dylan, a Stocks Search Bot. Just tell me which stock you want to know the current price of, and I'll tell you (e.g., Microsoft).",
+    "response": "Your stock is {title}, and the current price per action now is; ${price} {currency}."
+}
