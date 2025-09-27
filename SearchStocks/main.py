@@ -144,5 +144,5 @@ class SearchStocks:
             
         print()
 
-stocks = SearchStocks('Script.json')
+stocks = SearchStocks('script.json')
 stocks.interface()
