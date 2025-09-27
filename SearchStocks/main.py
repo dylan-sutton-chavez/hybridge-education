@@ -144,5 +144,6 @@ class SearchStocks:
             
         print()
 
-stocks = SearchStocks('script.json')
-stocks.interface()
+if __name__ == "__main__":
+    stocks = SearchStocks('script.json')
+    stocks.interface()
