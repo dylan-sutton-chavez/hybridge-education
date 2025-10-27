@@ -13,7 +13,12 @@ class FaceAuthentication:
 
         time complexity →o(1)
         """
-        self.face_cache: str = face_to_save
+        # try to verify the face with the given files
+        try:
+            self.face_cache: str = face_to_save
+        # check if the file doesnt exists
+        except FileNotFound:
+            raise("the file has been not founded")
 
     def verify_face(self, face: str):
         """
@@ -25,10 +30,15 @@ class FaceAuthentication:
         output:
             bool → True if its the same face, False if is not the same face
 
-        time complexity → o(1)
+        time complexity → ± o(n) → depends the intern logic of "DeepFace"
         """
-        result = DeepFace.verify(self.face_cache, face)
-        return result['verified']
+        # try to verify the face with the given files
+        try:
+            result = DeepFace.verify(self.face_cache, face)
+            return result['verified']
+        # check if the file doesnt exists
+        except FileNotFound:
+            raise("the file has been not founded")
     
 if __name__ == '__main__':
     """this block just run when the file is directly runed"""
@@ -37,5 +47,6 @@ if __name__ == '__main__':
     result: bool = face_authenticator.verify_face('img2.jpg') # verify if the face is the same "actor face"
 
     status: str = "is" if result else "isn't" # convert the result into an string (is, isn't)
+
 
     print(f'The face {status} the same :)')
