@@ -17,7 +17,7 @@ class FaceAuthentication:
         try:
             self.face_cache: str = face_to_save
         # check if the file doesnt exists
-        except FileNotFound:
+        except FileNotFoundError:
             raise("the file has been not founded")
 
     def verify_face(self, face: str):
@@ -37,7 +37,7 @@ class FaceAuthentication:
             result = DeepFace.verify(self.face_cache, face)
             return result['verified']
         # check if the file doesnt exists
-        except FileNotFound:
+        except FileNotFoundError:
             raise("the file has been not founded")
     
 if __name__ == '__main__':
@@ -50,3 +50,4 @@ if __name__ == '__main__':
 
 
     print(f'The face {status} the same :)')
+
