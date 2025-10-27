@@ -13,12 +13,7 @@ class FaceAuthentication:
 
         time complexity →o(1)
         """
-        # try to verify the face with the given files
-        try:
-            self.face_cache: str = face_to_save
-        # check if the file doesnt exists
-        except FileNotFoundError:
-            raise("the file has been not founded")
+        self.face_cache: str = face_to_save
 
     def verify_face(self, face: str):
         """
@@ -50,4 +45,5 @@ if __name__ == '__main__':
 
 
     print(f'The face {status} the same :)')
+
 
