@@ -31,10 +31,10 @@ class FaceAuthentication:
         try:
             result = DeepFace.verify(self.face_cache, face)
             return result['verified']
-            
+        
         # check if the file doesnt exists
-        except FileNotFoundError:
-            raise("the file has been not founded")
+        except FileNotFoundError as e:
+            raise FileNotFoundError(f"One of the face files was not found: {e}")
     
 if __name__ == '__main__':
     """this block just run when the file is directly runed"""
@@ -44,8 +44,4 @@ if __name__ == '__main__':
 
     status: str = "is" if result else "isn't" # convert the result into an string (is, isn't)
 
-
     print(f'The face {status} the same :)')
-
-
-
